@@ -1,0 +1,68 @@
+.tab-content {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#heartIconDetails svg {
+    font-size: 34pt;
+    cursor: pointer;
+    margin-top: 22px;
+    color: #81002c;
+}
+
+.product-info-heading {
+    margin-left: 19px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#detailsCardText {
+    margin-left: 8px;
+}
+
+#details-footer {
+    text-align: right;
+}
+
+#detailsProduct img {
+    height: 500px;
+    object-fit: cover;
+}
+
+.tab-pane {
+    text-indent: 50px;
+    text-align: justify;
+    letter-spacing: 1px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    background-color: #04AA6D;
+    padding: 10px 200px;
+}
+
+.land-group {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin: 5px;
+    font-size: 10px;
+    text-align: center;
+}
+
+.land {
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    background-color: #D7E8BA;
+}
+
+.selected-land {
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    background-color: #ADD8E6;
+}
+
+canvas {
+    width: 750px !important;
+    height: 500px !important;
+}
