@@ -7,6 +7,7 @@ import {checkIfWalletIsConnected } from '../../services/userData'
 import './Header.css'
 import logo from '../../assets/logo_without_bg.png'
 
+
 function Header() {
     const { userData, setUserData } = useContext(Context)
 
