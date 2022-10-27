@@ -7,4 +7,5 @@ function LogOut({ history }) {
         .catch(err => console.log(err))
 }
 
+
 export default LogOut;

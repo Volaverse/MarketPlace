@@ -10,6 +10,7 @@ import '../components/Categories/Categories.css';
 import '../components/ProductCard/ProductCard.css';
 import './Market.css';
 
+
 function Market({ match }) {
     const [landProducts, setLandProducts] = useState([]);
     const [wearableProducts, setWearableProducts] = useState([]);
