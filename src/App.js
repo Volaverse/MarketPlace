@@ -10,7 +10,6 @@ import Owned from './Pages/Owned';
 import Details from './Pages/Details';
 import Error404 from './Pages/Error404';
 
-
 function App() {
    return (
       <>

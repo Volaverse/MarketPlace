@@ -192,7 +192,6 @@ function Aside({ params, history }) {
                         <p id="guest-msg"><Link to="/auth/login">Sign In</Link> now to buy the NFT</p>
                     )}
             </div>
-            
             {/* <Modal show={showMsg} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Message</Modal.Title>
