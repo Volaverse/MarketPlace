@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState,useContext } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component'
+import { Context } from '../ContextStore';
 import CategoriesNav from '../components/Categories/CategoriesNav'
 import ProductCard from '../components/ProductCard/ProductCard';
 import { Col, Spinner, Dropdown, Row } from 'react-bootstrap';
@@ -10,7 +11,6 @@ import '../components/Categories/Categories.css';
 import '../components/ProductCard/ProductCard.css';
 import './Market.css';
 
-
 function Market({ match }) {
     const [landProducts, setLandProducts] = useState([]);
     const [wearableProducts, setWearableProducts] = useState([]);
@@ -19,6 +19,7 @@ function Market({ match }) {
     const [wearableLoading, setWearableLoading] = useState(true);
     const [decorationLoading, setDecorationLoading] = useState(true);
     const [sort, setSort] = useState('lowerPrice');
+    const {userData, setUserData} = useContext(Context)
 
     useEffect(() => {
         setLandLoading(true);
@@ -52,6 +53,8 @@ function Market({ match }) {
 
     return (
         <>
+        {(userData)?
+        (
             <div className="container">
                 <h1 style={{color:"white", textAlign: "center"}}> Market </h1>
                 <div>
@@ -100,6 +103,10 @@ function Market({ match }) {
                     }
                 </div>
             </div>
+        )
+        :(<> </>)
+    }
+            
         </>
     )
 }

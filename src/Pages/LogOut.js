@@ -1,11 +1,8 @@
 function LogOut({ history }) {
-    fetch('/auth/logout')
-        .then(res => res.json())
-        .then(res => {
-            history.push('/')
-        })
-        .catch(err => console.log(err))
-}
+    localStorage.removeItem("passphrase");
 
+    history.push('/');
+    window.location.reload();
+}
 
 export default LogOut;

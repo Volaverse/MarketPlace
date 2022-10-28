@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Row, Tabs, Tab, Image, OverlayTrigger , Tooltip} from 'react-bootstrap';
-import ReactThreeFbxViewer from 'react-three-fbx-viewer';
+// import ReactThreeFbxViewer from 'react-three-fbx-viewer';
 // let fbxUrl = '../../../assets/FirstDecorationTable.fbx';
 // import fbxUrl from '../../../assets/cerca2.fbx';
 // import ThreeScene from '../../ThreeScene/ThreeScene';
@@ -85,7 +85,7 @@ function ProductInfo({ params }) {
             <div>
             {/* <div> */}
                 {params.category == "land" && <MyMap  key="grid-container"/>}
-                {params.category == "decoration" && <ReactThreeFbxViewer style={{}} cameraPosition={cameraPosition} url={fbxUrl} />}
+                {/* {params.category == "decoration" && <ReactThreeFbxViewer style={{}} cameraPosition={cameraPosition} url={fbxUrl} />} */}
 
             </div>
             <Row>

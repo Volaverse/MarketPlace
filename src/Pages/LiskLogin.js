@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import SimpleSider from '../components/Siders/SimpleSider';
 import { passphrase, cryptography } from "@liskhq/lisk-client";
 
-function ListLogin({ history }) {
+function LiskLogin({ history }) {
     const [loading, setLoading] = useState(false);
     const [alertShow, setAlertShow] = useState(false);
     const [error, setError] = useState(null);
@@ -80,4 +80,4 @@ function ListLogin({ history }) {
     )
 }
 
-export default ListLogin;
+export default LiskLogin;

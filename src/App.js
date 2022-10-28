@@ -5,7 +5,9 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Categories from './Pages/Categories';
 import Market from './Pages/Market';
-import Login from './Pages/Login';
+// import Login from './Pages/Login';
+import LiskLogin from './Pages/LiskLogin';
+import LogOut from './Pages/LogOut';
 import Owned from './Pages/Owned';
 import Details from './Pages/Details';
 import Error404 from './Pages/Error404';
@@ -20,7 +22,8 @@ function App() {
             <Route path="/market/:category" exact component={Categories} />
             <Route path="/owned/:publicAddress/:category/" component={Owned} />
             <Route path="/nft/:contractAddress/:tokenId/details" component={Details} />
-            <Route path="/auth/login" exact component={Login} />
+            <Route path="/auth/login" exact component={LiskLogin} />
+            <Route path="/auth/logout" exact component={LogOut} />
             <Route component={Error404} />
          </Switch>
          <Footer />
