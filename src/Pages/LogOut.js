@@ -1,5 +1,5 @@
 function LogOut({ history }) {
-    localStorage.removeItem("passphrase");
+    localStorage.removeItem("address");
 
     history.push('/');
     window.location.reload();

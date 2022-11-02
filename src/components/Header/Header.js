@@ -11,9 +11,9 @@ function Header() {
     const [loggedIn,setLoggedIn]=useState(false)
 
     useEffect(() => {
-        if(localStorage.getItem("passphrase")){
-            {console.log(localStorage.getItem("passphrase"))}
-            setUserData(localStorage.getItem("passphrase"));
+        if(localStorage.getItem("address")){
+            {console.log(localStorage.getItem("address"))}
+            setUserData(localStorage.getItem("address"));
             setLoggedIn(true);
         }
     }, []);

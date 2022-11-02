@@ -26,3 +26,6 @@ export const ContextStore = ({ children }) => {
         </Context.Provider>
     )
 }
+
+export const nodeInfoContextDefaultValue = { networkIdentifier: "", genesisConfig: { minFeePerByte: BigInt(0) }, height: 0 };
+export const NodeInfoContext = React.createContext({ ...nodeInfoContextDefaultValue });

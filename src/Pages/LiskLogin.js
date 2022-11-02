@@ -15,9 +15,21 @@ function LiskLogin({ history }) {
     // const { connect, disconnect, isActive, account, shouldDisable } = useMetaMask()
     const { setUserData } = useContext(Context)
 
+    const validatePassphrase=(str)=>{
+        if (str.trim().split(" ").length != 12) {
+            return false;
+        }else{
+            return true;
+        }
+    }
     
     const handleSubmitLogin = (e) => {
         e.preventDefault();
+        try{
+        if(!validatePassphrase(password)){
+            alert("Invalid password");
+            return;
+        }
         setLoading(true);
         console.log("heyyy");
         const { publicKey } = cryptography.getPrivateAndPublicKeyFromPassphrase(
@@ -33,11 +45,15 @@ function LiskLogin({ history }) {
         if(address){
             const base32UIAddress = cryptography.getBase32AddressFromAddress(Buffer.from(address, 'hex'), 'lsk').toString('binary');
             console.log("ui address is "+base32UIAddress);
-            localStorage.setItem('passphrase',base32UIAddress);
+            localStorage.setItem('address',base32UIAddress);
             // setUserData(base32UIAddress.toString());
             history.push('/');
             window.location.reload();
         }
+    }
+    catch{
+        alert("Something went wrong");
+    }
     }
 
     return (

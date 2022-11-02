@@ -324,43 +324,9 @@ export async function setApproval(contractAddress, ipfsHash, perm) {
 }
 
 export async function getMarketNfts(category) {
-    if (!category) return [];
-    const web3 = new Web3(window.ethereum);
-    if (typeof web3 !== 'undefined') {
-        var abi = JSON.parse(nftManagerAbi);
-        var myContract = new web3.eth.Contract(abi, nftManagerContractAddress);
-        console.log("getMarketNfts called");
-        var category_type;
-        if (category == "land") category_type = 0;
-        else if (category == "wearable") category_type = 1;
-        else if (category == "decoration") category_type = 2;
-        else {
-            console.log("category ", category, " not known!");
-            return [];
-        }
-        const response = await myContract.methods.getNFTs(category_type)
-            .call({
-                from: window.web3.currentProvider.selectedAddress,
-            });
-        const result = [];
-        console.log("getMarketNfts recieved result:", response);
-        for (let i = 0; i < response.length; i++) {
-            if (response[i][1]) {
-                result.push({
-                    price: response[i][2],
-                    onSale: response[i][1],
-                    owner: response[i][0].toLowerCase(),
-                    contractAddress: response[i][5],
-                    tokenId: response[i][4],
-                    category: category
-                })
-            }
-        }
-        return result;
-    } else {
-        console.log("web3 not defined");
-        return [];
-    }
+    return fetch("http://localhost:8080/api/nft_tokens")
+    .then((res) => res.json())
+    .then((res) => res.data);
 }
 
 export async function getUserNfts(public_key, category) {

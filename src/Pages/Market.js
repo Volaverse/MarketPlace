@@ -4,7 +4,7 @@ import { Context } from '../ContextStore';
 import CategoriesNav from '../components/Categories/CategoriesNav'
 import ProductCard from '../components/ProductCard/ProductCard';
 import { Col, Spinner, Dropdown, Row } from 'react-bootstrap';
-import { getMarketNfts } from '../services/productData';
+import { getMarketNfts } from '../services/liskProductData';
 import { BiSortDown, BiSort, BiDownArrowAlt, BiUpArrowAlt, BiSortUp } from 'react-icons/bi'
 import '../components/Siders/SearchSider.css'
 import '../components/Categories/Categories.css';
@@ -16,39 +16,39 @@ function Market({ match }) {
     const [wearableProducts, setWearableProducts] = useState([]);
     const [decorationProducts, setDecorationProducts] = useState([]);
     const [landLoading, setLandLoading] = useState(true);
-    const [wearableLoading, setWearableLoading] = useState(true);
-    const [decorationLoading, setDecorationLoading] = useState(true);
+    // const [wearableLoading, setWearableLoading] = useState(true);
+    // const [decorationLoading, setDecorationLoading] = useState(true);
     const [sort, setSort] = useState('lowerPrice');
     const {userData, setUserData} = useContext(Context)
 
     useEffect(() => {
         setLandLoading(true);
-        setWearableLoading(true);
-        setDecorationLoading(true);
+        // setWearableLoading(true);
+        // setDecorationLoading(true);
         getMarketNfts("land")
             .then(res => {
-                // console.log("result: " + res);
+                console.log("result: " + res);
                 // console.log("result: " + typeof(res));
                 setLandProducts(res);
                 setLandLoading(false);
             })
             .catch(err => console.log("Error loading land market: " + err));
-        getMarketNfts("wearable")
-            .then(res => {
-                // console.log("result: " + res);
-                // console.log("result: " + typeof(res));
-                setWearableProducts(res);
-                setWearableLoading(false);
-            })
-            .catch(err => console.log(err));
-        getMarketNfts("decoration")
-            .then(res => {
-                // console.log("result: " + res);
-                // console.log("result: " + typeof(res));
-                setDecorationProducts(res);
-                setDecorationLoading(false);
-            })
-            .catch(err => console.log(err));
+        // getMarketNfts("wearable")
+        //     .then(res => {
+        //         // console.log("result: " + res);
+        //         // console.log("result: " + typeof(res));
+        //         setWearableProducts(res);
+        //         setWearableLoading(false);
+        //     })
+        //     .catch(err => console.log(err));
+        // getMarketNfts("decoration")
+        //     .then(res => {
+        //         // console.log("result: " + res);
+        //         // console.log("result: " + typeof(res));
+        //         setDecorationProducts(res);
+        //         setDecorationLoading(false);
+        //     })
+        //     .catch(err => console.log(err));
     }, [])
 
     return (
@@ -72,7 +72,7 @@ function Market({ match }) {
                             </Row>
                     }
                 </div>
-                <div>
+                {/* <div>
                 <a href="/market/wearable"> <h3 className="categoryName">WEARABLE</h3><p className="noItems"> See More ...</p> </a>
                     {landLoading ? 
                             <div className="spinner">
@@ -101,7 +101,7 @@ function Market({ match }) {
                                 )}
                             </Row>
                     }
-                </div>
+                </div> */}
             </div>
         )
         :(<> </>)
