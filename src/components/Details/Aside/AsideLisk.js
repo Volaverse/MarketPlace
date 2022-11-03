@@ -48,6 +48,7 @@ function AsideLisk({ params, history }) {
         fee: "",
         passphrase: "",
       });
+      let pass="";
       const [nodeInfoState, updateNodeInfoState] = useState(
 		nodeInfoContextDefaultValue,
 	);
@@ -106,11 +107,13 @@ function AsideLisk({ params, history }) {
         event.preventDefault();
         try{
         setLoading(true);
-        if(!validatePassphrase(data.passphrase)){
+        console.log(sellData);
+        if(!validatePassphrase(sellData.passphrase)){
             setLoading(false);
             alert("Invalid Password");
             return;
         }
+       
         sellData.name=params.name;
         sellData.nftId=params.id;
         // console.log(sellData)
@@ -170,7 +173,9 @@ function AsideLisk({ params, history }) {
             minFeePerByte: info.genesisConfig.minFeePerByte,
         });
         const response=await sendTransactions(res.tx);
+
         setLoading(false);
+
         if(response.transactionId){
             alert("Transaction successful,Transaction will be updated soon");
         }else{
@@ -262,6 +267,7 @@ function AsideLisk({ params, history }) {
                             <br/>
 
                             <input type="text" name="passphrase" placeholder='Passphrase (12 words)' value={sellData.passphrase} onChange={(text)=>{
+                                pass=text.target.value;
                                 setSellData({ ...sellData, [text.target.name]: text.target.value });
                             }} required />
                             <br/>
