@@ -3,14 +3,23 @@ import { Context } from '../ContextStore';
 import { Form, Button, Spinner, Alert } from 'react-bootstrap';
 import { passphrase, cryptography } from "@liskhq/lisk-client";
 
-function LiskLogin({ history }) {
+
+function LiskSignup({ history }) {
     const [loading, setLoading] = useState(false);
     const [alertShow, setAlertShow] = useState(false);
     const [error, setError] = useState(null);
     const [address, setAddress] = useState("");
-    const [password,setPassword]=useState("");
+    const [password, setPassword] = useState("");
 
-    const validatePassphrase=(str)=>{
+    useEffect(() => {
+        const pw = passphrase.Mnemonic.generateMnemonic();
+        console.log(pw)
+        const address = cryptography.getBase32AddressFromPassphrase(pw).toString("hex");
+        setPassword(pw);
+        setAddress(address);
+      }, []);
+
+      const validatePassphrase=(str)=>{
         if (str.trim().split(" ").length != 12) {
             return false;
         }else{
@@ -41,22 +50,24 @@ function LiskLogin({ history }) {
             const base32UIAddress = cryptography.getBase32AddressFromAddress(Buffer.from(address, 'hex'), 'lsk').toString('binary');
             console.log("ui address is "+base32UIAddress);
             localStorage.setItem('address',base32UIAddress);
-            localStorage.setItem('hexAddress',address);
-
             // setUserData(base32UIAddress.toString());
             history.push('/');
             window.location.reload();
         }
     }
     catch{
+        
         alert("Something went wrong");
+        setLoading(false);
     }
     }
 
     return (
         <>
             <div className="container auth-form">
-                <h1 className="auth-heading" style={{color:"white"}}>Sign In</h1>
+                <h1 className="auth-heading" style={{color:"white"}}>Sign Up</h1>
+                <h3 className="auth-heading" style={{color:"white"}}>Please copy and safely store the passphrase and address</h3>
+                <h5 className="auth-heading" style={{color:"white"}}>Click on field to copy</h5>
                 <Form className="col-lg-6" onSubmit={handleSubmitLogin}>
                     {alertShow &&
                         <Alert variant="danger" onClose={() => setAlertShow(false)} dismissible>
@@ -70,22 +81,29 @@ function LiskLogin({ history }) {
                             Please wait... <Spinner animation="border" />
                         </Button>
                         :
-                        <>
-                <h5 className="auth-heading" style={{color:"white"}}>Enter Lisk passphrase</h5>
+                        (
+                            <>
+                        <fieldset disabled>
+                            <Form.Group className="mb-3">
+                            <Form.Label htmlFor="disabledTextInput">Passphrase</Form.Label>
+                            <Form.Control id="disabledTextInput" value={password} onClick={() => {navigator.clipboard.writeText(password)}} placeholder="Passphrase" />
+                            </Form.Group>
+                        </fieldset>
 
-                <Form.Group className="mb-3" controlId="LiskPassphrase">
-                    <Form.Label>Passphrase</Form.Label>
-                    <Form.Control type="text" value={password} placeholder="12 word password" onChange={(text)=>{
-                        setPassword(text.target.value);
-                    }}/>
-                    <br/>
-                </Form.Group>
-
-
-                <Button variant="dark" className="col-lg-12 btnAuth" type="submit">
-                    Connect To Lisk
-                </Button>
+                        <fieldset disabled>
+                            <Form.Group className="mb-3">
+                            <Form.Label htmlFor="disabledTextInput">Passphrase</Form.Label>
+                            <Form.Control id="disabledTextInput" value={address} placeholder="Address" onClick={() => {navigator.clipboard.writeText(address)}} />
+                            
+                            </Form.Group>
+                        </fieldset>
+                         <Button variant="dark" className="col-lg-12 btnAuth" type="submit">
+                            Login with these Credentials
+                         </Button>
                         </>
+                        
+
+                        )
                     }
                 </Form>
             </div>
@@ -93,4 +111,4 @@ function LiskLogin({ history }) {
     )
 }
 
-export default LiskLogin;
+export default LiskSignup;

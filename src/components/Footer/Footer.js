@@ -9,11 +9,12 @@ function Footer() {
 
 Volaverse |
 CEO - Ujjwal Singla, IITD |
-COO - Swati Goyal, ex-YSchool |
-CTO - Tarush Goyal, IITB | 
-Tech Lead - Farhaan Zameer, ex-YSchool |
-Designer - Manish, ex-YSchool |
-Adviser - Litesh Gumber, Cryptic Entertainment.
+COO - Swati Goyal, ex-YSchool 
+</div>
+<br/>
+<div className="container">
+
+We at Volaverse are working towards creating a community driven metaverse on blockchain for Web 3.0 enthusiasts around the globe. To contribute to the flourishing fast growing ecosystem we aim to build a learning, teaching and socializing platform creating a gamified and immersive experience for our users.
             </div>
         </footer >
     )

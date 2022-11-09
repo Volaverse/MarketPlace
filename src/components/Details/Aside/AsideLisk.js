@@ -118,14 +118,16 @@ function AsideLisk({ params, history }) {
         sellData.nftId=params.id;
         // console.log(sellData)
         const info = await fetchNodeInfo();
+        console.log(info);
 
         const res = await sellNFTToken({
             ...sellData,
             networkIdentifier: info.networkIdentifier,
             minFeePerByte: info.genesisConfig.minFeePerByte,
-          });
-          const response=await sendTransactions(res.tx);
-          setLoading(false);
+        });
+        console.log('res');
+        const response=await sendTransactions(res.tx);
+        setLoading(false);
 
           if(response.transactionId){
               alert("Transaction successful,Transaction will be updated soon");

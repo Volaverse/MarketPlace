@@ -16,7 +16,7 @@ import { cryptography,transactions } from "@liskhq/lisk-client";
 // import wearable_img3 from '../../assets/hat3_.png';
 
 function ProductCard({ params }) {
-    console.log(params);
+    // console.log(params);
     const user=localStorage.getItem("address");
     let ownerAddressBase32=""
     const get_land_image = () => {

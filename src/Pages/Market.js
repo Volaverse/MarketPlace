@@ -27,7 +27,6 @@ function Market({ match }) {
         // setDecorationLoading(true);
         getMarketNfts("land")
             .then(res => {
-                console.log("result: " + res);
                 // console.log("result: " + typeof(res));
                 setLandProducts(res);
                 setLandLoading(false);
@@ -49,6 +48,8 @@ function Market({ match }) {
         //         setDecorationLoading(false);
         //     })
         //     .catch(err => console.log(err));
+
+
     }, [])
 
     return (
