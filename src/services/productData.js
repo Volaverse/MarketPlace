@@ -324,7 +324,7 @@ export async function setApproval(contractAddress, ipfsHash, perm) {
 }
 
 export async function getMarketNfts(category) {
-    return fetch("http://localhost:8080/api/nft_tokens")
+    return fetch("http://13.230.167.238:8080/api/nft_tokens")
     .then((res) => res.json())
     .then((res) => res.data);
 }
