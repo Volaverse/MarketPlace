@@ -110,7 +110,7 @@ function ProductInfo({ params }) {
                     {params.category == 1 && <P>Make your scene more aesthetic with these limited edition collectibles</P>}
                     {params.category == 2 && <P>Make your avatar more fashionable and trendy</P>}
                         <hr />
-                        <P id="details-footer" className="text-muted">Product listed at {"00-00-0000"}</P>
+                        {/* <P id="details-footer" className="text-muted">Product listed at {"00-00-0000"}</P> */}
                     </Tab>
                 </Tabs>
             </div>

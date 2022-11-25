@@ -50,6 +50,7 @@ function LiskSignup({ history }) {
             const base32UIAddress = cryptography.getBase32AddressFromAddress(Buffer.from(address, 'hex'), 'lsk').toString('binary');
             console.log("ui address is "+base32UIAddress);
             localStorage.setItem('address',base32UIAddress);
+            localStorage.setItem('hexAddress',address);
             // setUserData(base32UIAddress.toString());
             history.push('/');
             window.location.reload();

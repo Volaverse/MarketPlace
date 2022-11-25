@@ -324,12 +324,15 @@ export async function setApproval(contractAddress, ipfsHash, perm) {
 }
 
 export async function getMarketNfts(category) {
-    return fetch("http://13.230.167.238:8080/api/nft_tokens")
+    return fetch("http://localhost:4000/api/nft_tokens")
     .then((res) => res.json())
     .then((res) => res.data);
 }
 
 export async function getUserNfts(public_key, category) {
+	var res=[];
+	console.log("getUserResp " +res)
+	return res;
     const web3 = new Web3(window.ethereum);
     if (typeof web3 !== 'undefined') {
         var abi = JSON.parse(nftManagerAbi);
@@ -457,7 +460,7 @@ export async function getSpecific2(contractAddress, id) {
         if (category_type == 0) category = "land";
         else if (category_type == 1) category = "wearable";
         else if (category_type == 2) category = "decoration";
-        else category = "fuck";
+        else category = "none";
         console.log("getSpecific recieved result for getNFTs:", response2);
         const result = {
             // name: response[0],

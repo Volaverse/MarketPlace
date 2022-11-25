@@ -57,7 +57,10 @@ function LiskFunds({ history }) {
             const res=await fetchAccountInfo(localStorage.getItem("hexAddress"));
             // console.log(localStorage.getItem("address").toString("hex"));
             // console.log(res.token.balance);
-            setBalance(res.token.balance);
+            if(res){
+                setBalance(res.token.balance);
+            }
+            
         }
         if(localStorage.getItem("hexAddress")){
             fetchAccountDetails();
@@ -136,11 +139,11 @@ function LiskFunds({ history }) {
                             </Form.Group>
                         </fieldset>
 
-                        <fieldset disabled>
+                        {/* <fieldset disabled>
                             <Form.Group className="mb-3">
                             <Form.Control name="passphrase" value={data.passphrase} onChange={handleChange} placeholder="Passphrase" />
                             </Form.Group>
-                        </fieldset>
+                        </fieldset> */}
                          <Button variant="dark" className="col-lg-12 btnAuth" type="submit">
                             Get Faucet
                          </Button>

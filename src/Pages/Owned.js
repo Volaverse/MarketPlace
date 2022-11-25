@@ -3,7 +3,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import CategoriesNav from '../components/Categories/CategoriesNav'
 import ProductCard from '../components/ProductCard/ProductCard';
 import { Col, Spinner, Dropdown } from 'react-bootstrap';
-import { getUserNfts } from '../services/productData';
+import { getUserNfts } from '../services/liskProductData';
 import { BiSortDown, BiSort, BiDownArrowAlt, BiUpArrowAlt, BiSortUp } from 'react-icons/bi'
 import '../components/Siders/SearchSider.css';
 import '../components/Categories/Categories.css';
@@ -12,7 +12,8 @@ import CenterHeading from '../components/CenterHeading/CenterHeading';
 
 function Owned({ match }) {
     let currentCategory = match.params.category;
-    let tempid = match.params.publicAddress;
+    console.log("category is "+ currentCategory)
+    let userAddress = localStorage.getItem('hexAddress');
     const [products, setProduct] = useState([]);
     const [loading, setLoading] = useState(true);
     const [sort, setSort] = useState('lowerPrice');
@@ -20,22 +21,24 @@ function Owned({ match }) {
 
     useEffect(() => {
         setLoading(true);
+        console.log("userAddress is " +userAddress)
         
-        if (!tempid) return;
-        getUserNfts(tempid, currentCategory)
+        if (!userAddress) return;
+        getUserNfts(userAddress,"land")
             .then(res => {
-                // console.log("params: ", match.params);
+                console.log("user nft is " +res)
+
                 setProduct(res);
                 setLoading(false);
                 // setQuery("");
             })
             .catch(err => console.log(err));
-    }, [currentCategory, tempid])
+    }, [currentCategory, userAddress])
 
     useEffect(() => {
-        console.log("id:",tempid);
-        setUserData(tempid);
-    }, [tempid]);
+        console.log("id:",userAddress);
+        setUserData(userAddress);
+    }, [userAddress]);
 
     const handleSearch = (e) => {
         e.preventDefault()
@@ -86,7 +89,7 @@ function Owned({ match }) {
                             //     }
                             // })
                             .map(x =>
-                                <ProductCard params={x} />
+                                <ProductCard key={x.id} params={x} />
                             )}
                     </InfiniteScroll>
                     : <div className="spinner">

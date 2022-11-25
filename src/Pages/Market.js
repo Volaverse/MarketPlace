@@ -68,7 +68,7 @@ function Market({ match }) {
                             <Row>
                             {(landProducts.length == 0) ? <p className="noItems"> No items to display </p> : 
                                 landProducts.map(x =>
-                                         <ProductCard params={x} />
+                                         <ProductCard key={x.id} params={x} />
                                 )}
                             </Row>
                     }
