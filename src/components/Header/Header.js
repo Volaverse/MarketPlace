@@ -43,12 +43,16 @@ function Header() {
 
                     {(userData)?
                         (<Nav>
-                            <NavDropdown onClick={() => {navigator.clipboard.writeText(userData)}}  title={<span className="titleName">{userData.substr(0,6) + "..." + userData.substr(-5,5)}</span>} drop="left" id="collasible-nav-dropdown">
-                                <NavLink className="dropdown-item"  to={`/owned/${userData}/land`}>
+                            <NavLink style={{margin:3}}  id="collasible-nav-dropdown" to={`/owned/${userData}/land`}>
+                            {userData.substr(0,6) + "..." + userData.substr(-5,5)}
+                            </NavLink>
+                            {/* //to={`/owned/${userData}/land`} */}
+                            {/* <NavDropdown onClick={() => {navigator.clipboard.writeText(userData)}}  title={<span className="titleName">{userData.substr(0,6) + "..." + userData.substr(-5,5)}</span>} drop="left" id="collasible-nav-dropdown">
+                                <NavLink className="dropdown-item" onClick={()=>{console.log("myAsset clicked")}}  to={`/owned/${userData}/land`}>
                                     <BsFillPersonFill /> My Assets
                                 </NavLink>
                                 <NavDropdown.Divider />
-                            </NavDropdown>
+                            </NavDropdown> */}
                             <NavLink style={{margin:3}} className="nav-item" id="nav-sign-in" to="/auth/funds">
                                 Funds
                             </NavLink>

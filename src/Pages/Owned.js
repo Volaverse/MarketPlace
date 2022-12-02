@@ -49,17 +49,6 @@ function Owned({ match }) {
             <CenterHeading text={"My Nfts"} />
             <CategoriesNav baseUrl={"/owned/" + userData} />
             <div className="container">
-                {/* <Dropdown id="dropdown-sort">
-                    <Dropdown.Toggle variant="light" id="dropdown-basic">
-                        Sort <BiSort />
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        <Dropdown.Item onClick={() => { setSort('oldest') }}>Oldest <BiDownArrowAlt /></Dropdown.Item>
-                        <Dropdown.Item onClick={() => { setSort('newest') }}>Newest <BiUpArrowAlt /></Dropdown.Item>
-                        <Dropdown.Item onClick={() => { setSort('lowerPrice') }}>Price <BiSortDown /></Dropdown.Item>
-                        <Dropdown.Item onClick={() => { setSort('biggerPrice') }}>Price <BiSortUp /> </Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown> */}
                 {!loading ?
                     <InfiniteScroll
                         dataLength={products.length}
@@ -74,20 +63,7 @@ function Owned({ match }) {
                         }}
                         className="row">
                         {products
-                            // .sort((a, b) => {
-                            //     // if (sort === "oldest") {
-                            //     //     return a.addedAt.localeCompare(b.addedAt)
-                            //     // }
-                            //     // if (sort === "newest") {
-                            //     //     return b.addedAt.localeCompare(a.addedAt)
-                            //     // }
-                            //     if (sort === "lowerPrice") {
-                            //         return b[2] - a[2]
-                            //     }
-                            //     if (sort === "biggerPrice") {
-                            //         return a[2] - b[2]
-                            //     }
-                            // })
+
                             .map(x =>
                                 <ProductCard key={x.id} params={x} />
                             )}

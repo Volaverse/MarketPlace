@@ -34,6 +34,11 @@
     color: black;
     font-size: 14pt;
 }
+a#collasible-nav-dropdown {
+    color: white;
+    margin-top: 5% !important;
+    margin-right: 5% !important;
+}
 
 #collasible-nav-dropdown svg {
     font-size: 24pt;
