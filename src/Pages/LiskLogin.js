@@ -1,7 +1,12 @@
 import { useState, useContext, useEffect } from 'react';
 import { Context } from '../ContextStore';
+import InputGroup from 'react-bootstrap/InputGroup';
 import { Form, Button, Spinner, Alert } from 'react-bootstrap';
 import { passphrase, cryptography } from "@liskhq/lisk-client";
+
+
+
+
 
 function LiskLogin({ history }) {
     const [loading, setLoading] = useState(false);
@@ -9,6 +14,20 @@ function LiskLogin({ history }) {
     const [error, setError] = useState(null);
     const [address, setAddress] = useState("");
     const [password,setPassword]=useState("");
+    // const[eye,seteye]=useState(true);
+    const eye=true;
+    const [passwordType, setPasswordType] = useState("password");
+const [passwordBtn, setpasswordBtn] = useState("Show");
+const togglePassword =()=>{
+    if(passwordType==="password")
+    {
+     setPasswordType("text")
+     setpasswordBtn("Hide")
+     return;
+    }
+    setPasswordType("password")
+    setpasswordBtn("Show")
+  }
 
     const validatePassphrase=(str)=>{
         if (str.trim().split(" ").length != 12) {
@@ -26,7 +45,6 @@ function LiskLogin({ history }) {
             return;
         }
         setLoading(true);
-        console.log("heyyy");
         const { publicKey } = cryptography.getPrivateAndPublicKeyFromPassphrase(
             password
           );
@@ -74,12 +92,24 @@ function LiskLogin({ history }) {
                 <h5 className="auth-heading" style={{color:"white"}}>Enter Lisk passphrase</h5>
 
                 <Form.Group className="mb-3" controlId="LiskPassphrase">
-                    <Form.Label>Passphrase</Form.Label>
-                    <Form.Control type="text" value={password} placeholder="12 word password" onChange={(text)=>{
+                <InputGroup>
+
+                    <Form.Control type={passwordType} value={password} 
+placeholder="12 word password" onChange={(text)=>{
                         setPassword(text.target.value);
-                    }}/>
+                    }} /> 
+                                    <InputGroup.Prepend>
+                                    
+                                <InputGroup.Text onClick={togglePassword}>{passwordBtn}
+                                {/* <FontAwesomeIcon name="check" spin key="icon" /> */}
+                                </InputGroup.Text>
+                                
+                            </InputGroup.Prepend>
+                </InputGroup>
                     <br/>
+                    {/* <i className={`fa ${eye ? "fa-eye-slash" : "fa-eye" }`}></i> */}
                 </Form.Group>
+                
 
 
                 <Button variant="dark" className="col-lg-12 btnAuth" type="submit">

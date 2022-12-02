@@ -56,9 +56,9 @@
 .dropdown-item.active,
 .dropdown-item:focus,
 .dropdown-item.active svg {
-    color: white;
-    /* background-color: #E7E6E6; */
-    opacity: 0;
+    /* color: white;
+    background-color: #E7E6E6;
+    opacity: 0; */
 }
 
 #navImg {

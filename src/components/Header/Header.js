@@ -44,8 +44,8 @@ function Header() {
                     {(userData)?
                         (<Nav>
                             <NavDropdown onClick={() => {navigator.clipboard.writeText(userData)}}  title={<span className="titleName">{userData.substr(0,6) + "..." + userData.substr(-5,5)}</span>} drop="left" id="collasible-nav-dropdown">
-                                <NavLink className="dropdown-item" to={`/owned/${userData}/land`}>
-                                    <BsFillPersonFill />My Assets
+                                <NavLink className="dropdown-item"  to={`/owned/${userData}/land`}>
+                                    <BsFillPersonFill /> My Assets
                                 </NavLink>
                                 <NavDropdown.Divider />
                             </NavDropdown>
