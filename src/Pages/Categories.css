@@ -3,3 +3,10 @@
     color: #E7E6E6;
     margin: 20px;
 }
+.no-nft {
+    font-size: 1.25rem;
+    /* text-align: center; */
+    color: white;
+    font-weight: bold;
+    margin: auto;
+}

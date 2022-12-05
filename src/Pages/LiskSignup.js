@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from 'react';
 import { Context } from '../ContextStore';
 import { Form, Button, Spinner, Alert } from 'react-bootstrap';
 import { passphrase, cryptography } from "@liskhq/lisk-client";
+import './LiskSignup.css'
 
 
 function LiskSignup({ history }) {
@@ -68,7 +69,6 @@ function LiskSignup({ history }) {
             <div className="container auth-form">
                 <h1 className="auth-heading" style={{color:"white"}}>Sign Up</h1>
                 <h3 className="auth-heading" style={{color:"white"}}>Please copy and safely store the passphrase and address</h3>
-                <h5 className="auth-heading" style={{color:"white"}}>Click on field to copy</h5>
                 <Form className="col-lg-6" onSubmit={handleSubmitLogin}>
                     {alertShow &&
                         <Alert variant="danger" onClose={() => setAlertShow(false)} dismissible>

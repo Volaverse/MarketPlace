@@ -7,6 +7,7 @@ import {sendTransactions,fetchNodeInfo} from '../services/liskProductData'
 import {transferFunds} from '../services/liskUserData'
 import { NodeInfoContext,nodeInfoContextDefaultValue } from '../ContextStore';
 import {fetchAccountInfo} from '../services/liskUserData'
+import './LiskFunds.css'
 
 function LiskFunds({ history }) {
     const [loading, setLoading] = useState(false);
@@ -106,6 +107,7 @@ function LiskFunds({ history }) {
                 <h5 className="auth-heading" style={{color:"white"}}>
                                (Current Balance : {Number(transactions.convertBeddowsToLSK(balance))} lsk)
                 </h5>
+                <div className="Inputform">
                 <Form className="col-lg-6" onSubmit={handleTransferFunds}>
                     {alertShow &&
                         <Alert variant="danger" onClose={() => setAlertShow(false)} dismissible>
@@ -153,6 +155,7 @@ function LiskFunds({ history }) {
                         )
                     }
                 </Form>
+                </div>
             </div>
         </>
     )

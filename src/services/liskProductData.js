@@ -5,14 +5,16 @@ import { objects } from '@liskhq/lisk-utils';
 import { getFullAssetSchema,calcMinTxFee } from "./liskCommon";
 // block.volaverse.com - localhost:8080
 // blockapi - localhost:4000
+var blockapi='https://blockapi.volaverse.com/block'
+var bockModuleApi='https://block.volaverse.com/block'
 export async function getMarketNfts(category) {
-    return fetch("http://localhost:8080/api/nft_tokens")
+    return fetch(bockModuleApi+"/api/nft_tokens")
     .then((res) => res.json())
     .then((res) => res.data);
 }
 
 export async function getUserNfts(add,category) {
-  return fetch("http://localhost:8080/api/nft_tokens")
+  return fetch(bockModuleApi+"/api/nft_tokens")
   .then((res) => res.json())
   .then((res) => {//console.log("data is "+JSON.stringify(res.data)); 
     const result= res.data.filter((ele) => ele.ownerAddress==add)
@@ -21,21 +23,21 @@ export async function getUserNfts(add,category) {
 }
 
 export async function getMarketNftsByID(id) {
-    return fetch(`http://localhost:8080/api/nft_tokens/${id}`)
+    return fetch(bockModuleApi+`/api/nft_tokens/${id}`)
     .then((res) => res.json())
     .then((res) => res.data);
 }
 
   
 export const fetchNodeInfo = async () => {
-  return fetch("http://localhost:4000/api/node/info")
+  return fetch(blockapi+"/api/node/info")
     .then((res) => res.json())
     .then((res) => res.data);
 };
 
 
 export const sendTransactions = async (tx) => {
-  return fetch("http://localhost:4000/api/transactions", {
+  return fetch(blockapi+"/api/transactions", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -59,3 +59,10 @@
 #dropdown-sort button svg {
     font-size: 14pt;
 }
+.no-nft {
+    font-size: 1.25rem;
+    /* text-align: center; */
+    color: white;
+    font-weight: bold;
+    margin: auto;
+}

@@ -1,8 +1,11 @@
 import { transactions, codec, cryptography } from "@liskhq/lisk-client";
 import { getFullAssetSchema,calcMinTxFee } from "./liskCommon";
 
+// blockapi - localhost:4000
+var blockapi='https:blockapi.volaverse.com/block'
+
 export const fetchAccountInfo = async (address) => {
-    return fetch(`http://localhost:4000/api/accounts/${address}`)
+    return fetch(blockapi+`/api/accounts/${address}`)
       .then((res) => res.json())
       .then((res) => res.data);
 };

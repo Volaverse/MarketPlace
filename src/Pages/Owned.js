@@ -62,12 +62,16 @@ function Owned({ match }) {
                          return false;
                         }}
                         className="row">
+                        { products.length==0 && <div className='no-nft'>NO NFT PURCHASED</div> }
                         {products
 
                             .map(x =>
                                 <ProductCard key={x.id} params={x} />
                             )}
+                        
+                        
                     </InfiniteScroll>
+                    
                     : <div className="spinner">
                         <Spinner animation="border" />
                     </div>
