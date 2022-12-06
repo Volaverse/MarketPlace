@@ -42,3 +42,11 @@ footer a:hover {
 #linkedIcon {
     font-size: 34pt;
 }
+.footer-icon{
+    font-size:2rem;
+    margin:1%;
+}
+.discord-icon {
+    font-size: 1.7rem;
+    margin: 1%;
+}

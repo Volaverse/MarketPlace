@@ -19,6 +19,7 @@
         "BigInt": "^5.5.3",
         "bootstrap": "^4.6.0",
         "gh-pages": "^3.2.3",
+        "mdb-react-ui-kit": "^5.0.0",
         "moment": "^2.29.4",
         "react": "^18.0.0",
         "react-bootstrap": "^1.5.2",

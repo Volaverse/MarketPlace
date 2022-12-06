@@ -14,7 +14,7 @@ function LiskFunds({ history }) {
     const [alertShow, setAlertShow] = useState(false);
     const [error, setError] = useState(null);
     const [data, setData] = useState({
-      recipientAddress: "",
+      recipientAddress: localStorage.getItem('address'),
       passphrase: "peanut hundred pen hawk invite exclude brain chunk gadget wait wrong ready",
       amount: "",
       fee: "",
@@ -125,7 +125,7 @@ function LiskFunds({ history }) {
                             <>
                         <fieldset>
                             <Form.Group className="mb-3">
-                            <Form.Control name="recipientAddress" value={data.recipientAddress} onChange={handleChange} placeholder="Recipient Address" />
+                            <Form.Control name="recipientAddress" defaultValue={data.recipientAddress} />
                             </Form.Group>
                         </fieldset>
 

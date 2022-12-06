@@ -1,15 +1,20 @@
 import './Footer.css';
-import { AiFillInstagram, AiFillLinkedin } from 'react-icons/ai'; 
+import { AiFillInstagram, AiFillLinkedin ,AiOutlineTwitter} from 'react-icons/ai'; 
+import { FaDiscord,FaTelegramPlane } from "react-icons/fa";
+
+import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
+
 import { FaFacebook } from 'react-icons/fa';
 
 function Footer() {
     return (
         <footer>
             <div className="container">
-
-Volaverse |
-CEO - Ujjwal Singla, IITD |
-COO - Swati Goyal, ex-YSchool 
+                <a href="https://www.instagram.com/volaverse/" target="_blank" rel="noopener noreferrer"><AiFillInstagram className="footer-icon"/></a>
+                <a href="https://twitter.com/Volaverse" target="_blank" rel="noopener noreferrer"><AiOutlineTwitter className="footer-icon"/></a>
+                <a href ="https://www.linkedin.com/company/volaverse/" target="_blank" rel="noopener noreferrer"> <AiFillLinkedin className="footer-icon"/></a>
+                <a href="https://discord.gg/uKdeefrV" target="_blank" rel="noopener noreferrer"><FaDiscord className="discord-icon"/></a>
+                <a href="https://t.me/Volaverse" target="_blank" rel="noopener noreferrer"><FaTelegramPlane className="footer-icon"/></a>
 </div>
 <br/>
 <div className="container">
