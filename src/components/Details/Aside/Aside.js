@@ -64,7 +64,6 @@ function Aside({ params, history }) {
 
             })
             .catch(err => console.log(err));
-        console.log("aside se bhai2:");
 
     }, [params]);
 

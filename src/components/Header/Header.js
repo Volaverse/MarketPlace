@@ -27,8 +27,6 @@ function Header() {
     //     setLoggedIn(true);
     //     setUserData(localStorage.getItem("passphrase"));
     // }
-    
-    console.log("header se bhai", userData);
     return (
         <Navbar className="color-nav" collapseOnSelect>
             <div className="container">

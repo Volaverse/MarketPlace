@@ -36,12 +36,9 @@ function LiskSignup({ history }) {
             return;
         }
         setLoading(true);
-        console.log("heyyy");
         const { publicKey } = cryptography.getPrivateAndPublicKeyFromPassphrase(
             password
           );
-
-        console.log("here");
         const address = cryptography.getAddressFromPassphrase(password).toString("hex");
         // console.log(publicKey);
         console.log(address);
@@ -93,7 +90,7 @@ function LiskSignup({ history }) {
 
                         <fieldset disabled>
                             <Form.Group className="mb-3">
-                            <Form.Label htmlFor="disabledTextInput">Passphrase</Form.Label>
+                            <Form.Label htmlFor="disabledTextInput">Address</Form.Label>
                             <Form.Control id="disabledTextInput" value={address} placeholder="Address" onClick={() => {navigator.clipboard.writeText(address)}} />
                             
                             </Form.Group>

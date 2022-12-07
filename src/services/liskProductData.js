@@ -82,8 +82,6 @@ export const purchaseNFTToken = async ({
     );
     
     const address = cryptography.getAddressFromPassphrase(passphrase);
-    console.log("address is ",address);
-    console.log("address 2",address.toString("hex"))
     console.log(networkIdentifier);
     const {
       sequence: { nonce },
