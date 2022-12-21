@@ -7,6 +7,8 @@ import { getFullAssetSchema,calcMinTxFee } from "./liskCommon";
 // blockapi - localhost:4000
 var blockapi='https://blockapi.volaverse.com/block'
 var bockModuleApi='https://block.volaverse.com/block'
+// var blockapi='http://localhost:4000'
+// var bockModuleApi='http://localhost:8080'
 export async function getMarketNfts(category) {
     return fetch(bockModuleApi+"/api/nft_tokens")
     .then((res) => res.json())

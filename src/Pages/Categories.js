@@ -3,7 +3,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 // import CategoriesNav from '../components/Categories/CategoriesNav'
 import ProductCard from '../components/ProductCard/ProductCard';
 import { Col, Spinner, Dropdown } from 'react-bootstrap';
-import { getMarketNfts } from '../services/productData';
+import { getMarketNfts } from '../services/liskProductData';
 import { BiSortDown, BiSort, BiDownArrowAlt, BiUpArrowAlt, BiSortUp } from 'react-icons/bi'
 import '../components/Siders/SearchSider.css'
 import '../components/Categories/Categories.css';
@@ -33,7 +33,7 @@ function Categories({ match }) {
         <>
             {/* <CategoriesNav baseUrl="/market" /> */}
             <div className="container">
-                <CenterHeading text={currentCategory + "Products"} />
+                <CenterHeading text={currentCategory + " Products "} />
                 {/* <Dropdown id="dropdown-sort">
                     <Dropdown.Toggle variant="light" id="dropdown-basic">
                         Sort <BiSort />

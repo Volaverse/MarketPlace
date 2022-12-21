@@ -12,7 +12,8 @@ import LiskFunds from './Pages/LiskFunds';
 import LogOut from './Pages/LogOut';
 import Owned from './Pages/Owned';
 import Details from './Pages/Details';
-import Error404 from './Pages/Error404';
+import Error404 from './Pages/Error404'
+import Test from './Pages/cardTest';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <Route path="/auth/signup" exact component={LiskSignup} />
             <Route path="/auth/logout" exact component={LogOut} />
             <Route path="/auth/funds" exact component={LiskFunds} />
+            <Route path="/test" exact component={Test} />
             <Route component={Error404} />
          </Switch>
          <Footer />

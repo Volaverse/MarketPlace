@@ -2,7 +2,7 @@ import { useEffect, useState,useContext } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { Context } from '../ContextStore';
 import CategoriesNav from '../components/Categories/CategoriesNav'
-import ProductCard from '../components/ProductCard/ProductCard';
+import BannerCard from '../components/BannerCard/BannerCard';
 import { Col, Spinner, Dropdown, Row } from 'react-bootstrap';
 import { getMarketNfts } from '../services/liskProductData';
 import { BiSortDown, BiSort, BiDownArrowAlt, BiUpArrowAlt, BiSortUp } from 'react-icons/bi'
@@ -12,7 +12,7 @@ import '../components/ProductCard/ProductCard.css';
 import './Market.css';
 import ControlledCarousel from './Carousel'
 
-function Market({ match }) {
+function Test({ match }) {
     const [landProducts, setLandProducts] = useState([]);
     const [wearableProducts, setWearableProducts] = useState([]);
     const [decorationProducts, setDecorationProducts] = useState([]);
@@ -59,7 +59,7 @@ function Market({ match }) {
         {(userData)?
         (
             <div className="container">
-                {/* <h1 className="categoryHeading"> Market </h1> */}
+                <h1 className="categoryHeading"> Test </h1>
                 <div>
                    
                     <h3 className="categoryName">LAND</h3> <a href="/market/land"><p className="noItems"> See More ...</p> </a>
@@ -69,10 +69,8 @@ function Market({ match }) {
                             </div>
                         : 
                             <Row>
-                            {(landProducts.length == 0) ? <p className="noItems"> No items to display </p> : 
-                                landProducts.slice(0, 5).map(x =>
-                                         <ProductCard key={x.id} params={x} />
-                                )}
+
+                                <BannerCard />
                             </Row>
                     }
                 </div>
@@ -115,4 +113,4 @@ function Market({ match }) {
     )
 }
 
-export default Market;
+export default Test;

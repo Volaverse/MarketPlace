@@ -3,6 +3,7 @@ import { getFullAssetSchema,calcMinTxFee } from "./liskCommon";
 
 // blockapi - localhost:4000
 var blockapi='https://blockapi.volaverse.com/block'
+// var blockapi='http://localhost:4000'
 
 export const fetchAccountInfo = async (address) => {
     return fetch(blockapi+`/api/accounts/${address}`)

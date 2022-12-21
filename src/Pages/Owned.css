@@ -1,0 +1,10 @@
+.address-text{
+ color: white;
+ margin-left: 1%;
+}
+.address{
+    color: white;
+}
+.user-details{
+    display: flex;
+}

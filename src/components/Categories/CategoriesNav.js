@@ -13,12 +13,12 @@ function CategoriesNav(params) {
             <Link to={params.baseUrl + "/land"}>
                 <Button variant="dark" id="properties"><BsHouseDoorFill />Land</Button>{' '}
             </Link>
-            {/* <Link to={params.baseUrl + "/wearable"}>
+            <Link to={params.baseUrl + "/wearable"}>
                 <Button variant="dark" id="clothes"><GiClothes />Wearables</Button>{' '}
             </Link>
             <Link to={params.baseUrl + "/decoration"}>
                 <Button variant="dark" id="garden"><GiFlowerPot />Decoration</Button>{' '}
-            </Link> */}
+            </Link>
         </div>
     )
 }

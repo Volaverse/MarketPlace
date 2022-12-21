@@ -8,6 +8,7 @@ import { BiSortDown, BiSort, BiDownArrowAlt, BiUpArrowAlt, BiSortUp } from 'reac
 import '../components/Siders/SearchSider.css';
 import '../components/Categories/Categories.css';
 import '../components/ProductCard/ProductCard.css';
+import './Owned.css';
 import CenterHeading from '../components/CenterHeading/CenterHeading';
 
 function Owned({ match }) {
@@ -46,8 +47,13 @@ function Owned({ match }) {
     // console.log("userData:", userData);
     return (
         <>
-            <CenterHeading text={"My Nfts"} />
+            <CenterHeading text={"My Account"} />
+            <div className="user-details">
+            <h2 className="address-text">Address :</h2>
+            <h2 className="address">{userAddress}</h2>
+            </div>
             <CategoriesNav baseUrl={"/owned/" + userData} />
+            
             <div className="container">
                 {!loading ?
                     <InfiniteScroll

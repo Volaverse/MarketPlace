@@ -1,7 +1,9 @@
 .categoriesHeading {
     text-align: center;
     color: #E7E6E6;
-    margin: 20px;
+    /* margin: 20px; */
+    margin-top: 4%;
+    margin-bottom: 5%;
 }
 .no-nft {
     font-size: 1.25rem;
@@ -9,4 +11,5 @@
     color: white;
     font-weight: bold;
     margin: auto;
+    
 }
