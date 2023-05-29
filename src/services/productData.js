@@ -385,7 +385,6 @@ export async function getSpecific(contractAddress, id) {
         if (category_type == 0) category = "land";
         else if (category_type == 1) category = "wearable";
         else if (category_type == 2) category = "decoration";
-        else category = "fuck";
         console.log("getSpecific recieved result for getNFTs:", response2);
         const result = {
             // name: response[0],

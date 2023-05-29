@@ -14,6 +14,9 @@ import Owned from './Pages/Owned';
 import Details from './Pages/Details';
 import Error404 from './Pages/Error404'
 import Test from './Pages/cardTest';
+import Test1 from './Pages/cardTest2';
+import Test3 from './Pages/cardTest3';
+import DetailsThree from './Pages/Details_3d'
 
 
 function App() {
@@ -22,7 +25,7 @@ function App() {
          <Header />
          <Switch>
             <Route path="/" exact component={Market} />
-            <Route path="/market/:category" exact component={Categories} />
+            <Route path="/categories/:category/:page" exact component={Categories} />
             <Route path="/owned/:publicAddress/:category/" component={Owned} />
             <Route path="/nft/:tokenId/details" component={Details} />
             <Route path="/auth/login" exact component={LiskLogin} />
@@ -30,6 +33,9 @@ function App() {
             <Route path="/auth/logout" exact component={LogOut} />
             <Route path="/auth/funds" exact component={LiskFunds} />
             <Route path="/test" exact component={Test} />
+            <Route path="/test1" exact component={Test1} />
+            <Route path="/test3" exact component={Test3} />
+            <Route path="/detailsTest" exact component={DetailsThree} />
             <Route component={Error404} />
          </Switch>
          <Footer />

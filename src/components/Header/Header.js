@@ -24,13 +24,23 @@ function Header() {
         
        
     }, []);
+    const [colorChange, setColorchange] = useState(false);
+    const changeNavbarColor = () =>{
+       if(window.scrollY >= 80){
+         setColorchange(true);
+       }
+       else{
+         setColorchange(false);
+       }
+    };
+    window.addEventListener('scroll', changeNavbarColor);
 
     // if(localStorage.getItem("passphrase")!=0){
     //     setLoggedIn(true);
     //     setUserData(localStorage.getItem("passphrase"));
     // }
     return (
-        <Navbar className="color-nav" collapseOnSelect>
+        <Navbar className={colorChange ? 'color-nav' : 'color-nav-transparent'} collapseOnSelect>
             <div className="container">
                 <Navbar.Brand>
                 <NavLink className="navbar-brand" to="/"><img src={logo} className="brand-logo"/></NavLink>

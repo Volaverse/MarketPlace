@@ -34,6 +34,7 @@
 }
 
 .product-details-seller {
+    margin-top: 30%;
     text-align: center;
 }
 
@@ -45,4 +46,11 @@
 
 #guest-msg a {
     text-decoration: underline;
+}
+.smbtBtn {
+    width: 189px;
+    margin-top: 10%;
+}
+div#priceLabel {
+    margin-left: 6%;
 }

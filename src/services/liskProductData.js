@@ -5,21 +5,34 @@ import { objects } from '@liskhq/lisk-utils';
 import { getFullAssetSchema,calcMinTxFee } from "./liskCommon";
 // block.volaverse.com - localhost:8080
 // blockapi - localhost:4000
-var blockapi='https://blockapi.volaverse.com/block'
-var bockModuleApi='https://block.volaverse.com/block'
-// var blockapi='http://localhost:4000'
-// var bockModuleApi='http://localhost:8080'
-export async function getMarketNfts(category) {
+// var blockapi='https://blockapi.volaverse.com/block'
+// var bockModuleApi='https://block.volaverse.com/block'
+var blockapi='http://localhost:4000'
+var bockModuleApi='http://localhost:8080'
+export async function getMarketNfts(category,toggle) {
     return fetch(bockModuleApi+"/api/nft_tokens")
     .then((res) => res.json())
-    .then((res) => res.data);
+    .then((res) => {
+
+      console.log("category chosen is "+category )
+      let result
+      if(toggle){
+        result= res.data.filter((ele) => ele.category==category && ele.minPurchaseMargin!=0)
+      }
+      else{
+        result= res.data.filter((ele) => ele.category==category)
+      }
+      
+      return result;
+    });
 }
 
 export async function getUserNfts(add,category) {
   return fetch(bockModuleApi+"/api/nft_tokens")
   .then((res) => res.json())
   .then((res) => {//console.log("data is "+JSON.stringify(res.data)); 
-    const result= res.data.filter((ele) => ele.ownerAddress==add)
+    console.log("category chosen is "+category )
+    const result= res.data.filter((ele) => ele.ownerAddress==add && ele.category==category)
     console.log("filered result is "+ result)
   return result;})
 }

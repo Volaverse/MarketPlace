@@ -24,10 +24,11 @@ function ControlledCarousel() {
             src={banner_img3}
             alt="First slide"
           />
-          <div>
+          <div className='carusel-name'>
           <h2 className="Carusel-heading">Land</h2>
+          <h2 className="Carusel-description">Buy a piece of a land nft and start spreading the knowledge in volaverse</h2>
           </div >
-          <p className="Carusel-description">Buy a piece of a land nft and start spreading the knowledge in volaverse</p>
+         X
         </Carousel.Item>
         <Carousel.Item>
           <img
@@ -35,7 +36,11 @@ function ControlledCarousel() {
             src={banner_img3}
             alt="Second slide"
           />
+          <div className='carusel-name'>
           <h2 className="Carusel-heading">Land</h2>
+          <h2 className="Carusel-description">Buy a piece of a land nft and start spreading the knowledge in volaverse</h2>
+          </div>
+
         </Carousel.Item>
         <Carousel.Item>
           <img
@@ -43,7 +48,11 @@ function ControlledCarousel() {
             src={banner_img3}
             alt="Third slide"
           />
+          <div className='carusel-name'>
           <h2 className="Carusel-heading">Land</h2>
+          <h2 className="Carusel-description">Buy a piece of a land nft and start spreading the knowledge in volaverse</h2>
+          </div>
+
         </Carousel.Item>
         <Carousel.Item>
           <img
@@ -51,7 +60,14 @@ function ControlledCarousel() {
             src={banner_img3}
             alt="Fourth slide"
           />
+          <div className='carusel-name'>
+
+          </div>
+          <div className='carusel-name'>
           <h2 className="Carusel-heading">Land</h2>
+          <h2 className="Carusel-description">Buy a piece of a land nft and start spreading the knowledge in volaverse</h2>
+          </div>
+
         </Carousel.Item>
         {/* <Carousel.Item>
           <img

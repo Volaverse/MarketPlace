@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Row, Tabs, Tab, Image, OverlayTrigger , Tooltip} from 'react-bootstrap';
-import fbxUrl from '../../../assets/FirstDecorationTable.fbx';
 import { transactions } from "@liskhq/lisk-client";
 import { cryptography } from "@liskhq/lisk-client";
+// import ThreeScene from '../../ThreeScene/ThreeScene';
+import ThreeScene from '../../ThreeScene/ThreeScene';
 
 import styled from 'styled-components';
 
@@ -86,11 +87,8 @@ function ProductInfo({ params }) {
     return (
         <>
             {/* <Image className="col-lg-12" src={params.image} rounded /> */}
-            <div>
-            {/* <div> */}
-                {/* {params.category == "land" && <MyMap  key="grid-container"/>} */}
-                {/* {params.category == "decoration" && <ReactThreeFbxViewer style={{}} cameraPosition={cameraPosition} url={fbxUrl} />} */}
-
+            <div className='model'>
+                    <ThreeScene/>
             </div>
             <Row>
                 {/* <H1 className="col-lg-10 col-sm-10 product-info-heading">{params.category.toUpperCase()}</H1> */}
@@ -114,7 +112,11 @@ function ProductInfo({ params }) {
                     </Tab>
                 </Tabs>
             </div>
+
+
         </>
+
+        
     )
 }
 

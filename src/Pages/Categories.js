@@ -9,17 +9,41 @@ import '../components/Siders/SearchSider.css'
 import '../components/Categories/Categories.css';
 import '../components/ProductCard/ProductCard.css';
 import CenterHeading from '../components/CenterHeading/CenterHeading';
-
+import ToggleSwitch from '../components/Toggle/Toggle';
+import { getUserNfts } from '../services/liskProductData';
+let userAddress = localStorage.getItem('hexAddress');
 
 function Categories({ match }) {
     let currentCategory = match.params.category;
+    let cat=0;
+    let page = match.params.page;
+    if(!page){
+        page='market'
+    }
     const [products, setProduct] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [toggle, setToggle] = useState(false);
     const [sort, setSort] = useState('lowerPrice');
 
     useEffect(() => {
         setLoading(true);
-        getMarketNfts(currentCategory)
+        switch(currentCategory){
+            case "land":
+                cat=0;
+                break;
+            case "wearable":
+                cat=1;
+                break;
+            case "decoration":
+                cat=2;
+                break;
+            default:
+                cat=0
+        }
+        localStorage.setItem('cat',cat)
+        if(page=='market'){
+            
+            getMarketNfts(localStorage.getItem('cat'),toggle)
             .then(res => {
                 console.log("result: " + res);
                 console.log("result: " + typeof(res));
@@ -27,13 +51,75 @@ function Categories({ match }) {
                 setLoading(false);
             })
             .catch(err => console.log(err));
+        }
+        else if (page=='owner'){
+
+            console.log("cat num is " +cat+ " category is "+currentCategory);
+    
+            getUserNfts(userAddress,cat)
+                .then(res => {
+                    console.log("user nft is " +res)
+    
+                    setProduct(res);
+                    setLoading(false);
+                    // setQuery("");
+                })
+                .catch(err => console.log(err));
+
+
+        }
+
     }, [currentCategory])
+
+    const handleClick=()=>{
+        console.log('Cat is ',localStorage.getItem('cat'))
+        console.log('Toggle is clicked')
+        console.log('before toggle'+toggle);
+        setToggle((prevState)=>{
+            console.log('prev state is '+ prevState)
+            return !prevState
+        })
+
+        console.log('after toggle'+toggle);
+    }
+
+    useEffect(()=>{
+        console.log('Cat is ',cat)
+        getMarketNfts(localStorage.getItem('cat'),toggle)
+        .then(res => {
+            console.log("result: ",res);
+            console.log("result: " + typeof(res));
+            setProduct(res);
+            setLoading(false);
+        })
+        .catch(err => console.log(err));
+        
+    },[toggle])
+
+    const handleToggleClick = (event) => {
+        console.log('in handle toggle click')
+        event.stopPropagation();
+      };
+      const handleToggle = (isChecked) => {
+        console.log("Toggle is now " + isChecked);
+        // Do something else here
+      };
 
     return (
         <>
             {/* <CategoriesNav baseUrl="/market" /> */}
             <div className="container">
-                <CenterHeading text={currentCategory + " Products "} />
+                <div className='toogle-switch' onClick={handleClick}>
+                <ToggleSwitch
+        label="Only for sale"
+        isChecked={toggle}
+        onToggle={handleToggle}
+        onClick={handleToggleClick}
+      />
+                </div>
+            
+                <CenterHeading text={currentCategory + " Products " } />
+                
                 {/* <Dropdown id="dropdown-sort">
                     <Dropdown.Toggle variant="light" id="dropdown-basic">
                         Sort <BiSort />
@@ -68,7 +154,7 @@ function Categories({ match }) {
                             //     }
                             // })
                             .map(x =>
-                                    <ProductCard params={x} />
+                                    <ProductCard key={x.id} params={x} />
                             )}
                     </InfiniteScroll>
                     : <div className="spinner">

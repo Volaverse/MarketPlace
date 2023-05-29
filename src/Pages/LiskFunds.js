@@ -15,7 +15,7 @@ function LiskFunds({ history }) {
     const [error, setError] = useState(null);
     const [data, setData] = useState({
       recipientAddress: localStorage.getItem('address'),
-      passphrase: "peanut hundred pen hawk invite exclude brain chunk gadget wait wrong ready",
+      passphrase: "birth cram dynamic random chalk tackle hotel rifle basic act erupt december",
       amount: "",
       fee: "",
     });

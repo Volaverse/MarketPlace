@@ -66,3 +66,8 @@ canvas {
     width: 750px !important;
     height: 500px !important;
 }
+.model{
+    background-color: #ffe8e8;
+    margin-top: 10%;
+    margin-bottom: 3%;
+}

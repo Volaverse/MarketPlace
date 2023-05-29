@@ -20,6 +20,9 @@ function ProductCard({ params }) {
     const user=localStorage.getItem("address");
     let ownerAddressBase32=""
     const get_land_image = () => {
+        if(params.imageUrl){
+            return params.imageUrl;
+        }
         return land_img1;
         // if (i == 1) {
         //     return land_img1;

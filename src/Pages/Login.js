@@ -23,9 +23,7 @@ function Login({ history }) {
                 // if (!res.error) {
                     // setUserData(res.user)
                     var ad = getAddress();
-                    console.log("hello yo" + ad);
                     setAddress(ad);
-                    console.log("hello yo" + address);
                     setUserData(ad);
                     history.push('/')
                 // } else {

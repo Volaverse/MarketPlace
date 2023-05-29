@@ -220,21 +220,23 @@ function AsideLisk({ params, history }) {
                     <>
                     <Form className="col-lg-6" onSubmit={handleBuy}>
 
-                        <input type="text" name="passphrase" placeholder='Enter Passphrase (12 words)' value={data.passphrase} onChange={(text)=>{
+                        <input type="text" name="passphrase" className='form-txt' placeholder='Enter Passphrase (12 words)' value={data.passphrase} onChange={(text)=>{
                             setData({ ...data, [text.target.name]: text.target.value });
                         }} required />
-                        <input type="number" name="purchaseValue" placeholder='Enter Price (>value)' value={purchaseValue} onChange={(text)=>{
+                        <input type="number" name="purchaseValue" className='form-txt' placeholder='Enter Price (>value)' value={purchaseValue} onChange={(text)=>{
                             setPurchaseValue(text.target.value);
                             // setData({ ...data, [text.target.name]: text.target.value });
                         }} required />
-                        <input type="number" name="fee" placeholder='Enter Fee (>0)' value={fee} onChange={(text)=>{
+                        <input type="number" name="fee" className='form-txt' placeholder='Enter Fee (>0)' value={fee} onChange={(text)=>{
                             // setData({ ...data, [text.target.name]: (text.target.value) });
                             setFee(text.target.value);
                         }} required />
-                        <Button variant="dark" className="col-lg-10" id="btnContact" type="Submit">
-
+                        <div className='smbtBtn'>
+                        <Button variant="dark" className="col-lg-10" id="btnContact" type="Submit">  
                             Buy
                         </Button>
+                        </div>
+
                     </Form>
                     </>
                     }

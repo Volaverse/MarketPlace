@@ -17,44 +17,49 @@ function Market({ match }) {
     const [wearableProducts, setWearableProducts] = useState([]);
     const [decorationProducts, setDecorationProducts] = useState([]);
     const [landLoading, setLandLoading] = useState(true);
-    // const [wearableLoading, setWearableLoading] = useState(true);
-    // const [decorationLoading, setDecorationLoading] = useState(true);
+    const [wearableLoading, setWearableLoading] = useState(true);
+    const [decorationLoading, setDecorationLoading] = useState(true);
+ 
     const [sort, setSort] = useState('lowerPrice');
     const {userData, setUserData} = useContext(Context)
 
     useEffect(() => {
         setLandLoading(true);
-        // setWearableLoading(true);
-        // setDecorationLoading(true);
-        getMarketNfts("land")
+        setWearableLoading(true);
+        setDecorationLoading(true);
+        getMarketNfts(0)
             .then(res => {
                 // console.log("result: " + typeof(res));
                 setLandProducts(res);
                 setLandLoading(false);
             })
             .catch(err => console.log("Error loading land market: " + err));
-        // getMarketNfts("wearable")
-        //     .then(res => {
-        //         // console.log("result: " + res);
-        //         // console.log("result: " + typeof(res));
-        //         setWearableProducts(res);
-        //         setWearableLoading(false);
-        //     })
-        //     .catch(err => console.log(err));
-        // getMarketNfts("decoration")
-        //     .then(res => {
-        //         // console.log("result: " + res);
-        //         // console.log("result: " + typeof(res));
-        //         setDecorationProducts(res);
-        //         setDecorationLoading(false);
-        //     })
-        //     .catch(err => console.log(err));
+        getMarketNfts(1)
+            .then(res => {
+                // console.log("result: " + res);
+                // console.log("result: " + typeof(res));
+                setWearableProducts(res);
+                setWearableLoading(false);
+            })
+            .catch(err => console.log(err));
+        getMarketNfts(2)
+            .then(res => {
+                // console.log("result: " + res);
+                // console.log("result: " + typeof(res));
+                setDecorationProducts(res);
+                setDecorationLoading(false);
+            })
+            .catch(err => console.log(err));
 
 
     }, [])
 
     return (
         <>
+        <div className="container">
+        <h3 className='Tredning'>Trending</h3>
+        </div>
+        
         <ControlledCarousel />
         {(userData)?
         (
@@ -62,7 +67,9 @@ function Market({ match }) {
                 {/* <h1 className="categoryHeading"> Market </h1> */}
                 <div>
                    
-                    <h3 className="categoryName">LAND</h3> <a href="/market/land"><p className="noItems"> See More ...</p> </a>
+
+                    <h3 className="categoryName">LAND</h3> <a href="/categories/land/market"><p className="noItems"> See More ...</p> </a>
+
                     {landLoading ? 
                             <div className="spinner">
                                 <Spinner animation="border" />
@@ -76,36 +83,39 @@ function Market({ match }) {
                             </Row>
                     }
                 </div>
-                {/* <div>
-                <a href="/market/wearable"> <h3 className="categoryName">WEARABLE</h3><p className="noItems"> See More ...</p> </a>
-                    {landLoading ? 
+                <div>
+
+
+                <a href="/categories/wearable/market"> <h3 className="categoryName">WEARABLE</h3><p className="noItems"> See More ...</p> </a>
+
+                    {wearableLoading ? 
                             <div className="spinner">
                                 <Spinner animation="border" />
                             </div>
                         : 
                             <Row>
                             {(wearableProducts.length == 0) ? <p className="noItems"> No items to display </p> : 
-                                wearableProducts.map(x =>
-                                    <ProductCard params={x} />
+                                wearableProducts.slice(0, 5).map(x =>
+                                    <ProductCard key={x.id} params={x} />
                                 )}
                             </Row>
                     }
                 </div>
                 <div>
-                <a href="/market/decoration"> <h3 className="categoryName">DECORATION</h3><p className="noItems"> See More ...</p> </a>
-                    {landLoading ? 
+                <a href="/categories/decoration/market"> <h3 className="categoryName">Collectibles</h3><p className="noItems"> See More ...</p> </a>
+                    {decorationLoading ? 
                             <div className="spinner">
                                 <Spinner animation="border" />
                             </div>
                         : 
                             <Row>
                             {decorationProducts.length == 0 ? <p className="noItems"> No items to display </p> : 
-                                decorationProducts.map(x =>
-                                    <ProductCard params={x} />
+                                decorationProducts.slice(0, 5).map(x =>
+                                    <ProductCard key={x.id} params={x} />
                                 )}
                             </Row>
                     }
-                </div> */}
+                </div>
             </div>
         )
         :(<> </>)

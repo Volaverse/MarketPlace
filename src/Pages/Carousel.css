@@ -1,10 +1,10 @@
 .w-100 {
-    width: 32%!important;
+    width: 25%!important;
     margin-top: 0%;
 }
 h2.Carusel-heading {
-    margin-right: auto;
-    margin-left: auto;
+    /* margin-right: auto;
+    margin-left: auto; */
     color: white;
      margin-top: 2%;
 }
@@ -19,6 +19,12 @@ h2.Carusel-heading {
     margin-bottom: 4%;
     margin-left: 4%;
 }
-
+.carusel-name {
+    text-align: center;
+}
+h2.Carusel-description {
+    margin-left: 5%;
+    text-align: left;
+}
 
 
